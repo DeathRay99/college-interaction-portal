@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+}
+.navTop{
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+a{
+    text-decoration: none;
+    font-size: 17px;
+    padding-left: 18px;
+}
+.navTop div{
+    margin-right: 12%;
+}
+
