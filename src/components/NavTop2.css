@@ -9,6 +9,10 @@ text-decoration: none;
     gap: 15px;
     background-color: rgb(215, 58, 23);
     padding: 7px;
+    position: absolute;
+    z-index: 100;
+    background: none;
+    width: 100%;
   
 }
    
@@ -21,18 +25,20 @@ text-decoration: none;
     margin-left: 10%;
 }
 .navTop2 a{
-    padding-left: 30px;
-    padding-right: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 10px;
     font-weight: bolder;
     color: whitesmoke;
     font-size: larger;
-
+    background-color: rgba(0, 0, 0, 0.654);
+    border-radius: 5px;
 }
 .navTop2Anchor{
-    margin-right: 12%;
+    margin-right: 7%;
 }
 .apply-now-btn{
-    background-color: rgba(0, 0, 0, 0.654);
+    background-color: rgba(10, 157, 236, 0.654);
     border-radius: 5px;
 }
 

@@ -6,8 +6,8 @@ function App() {
   return (
     <div className="App">
       <NavTop/>
-      <div style={{border: "green 5px solid"}}>
-      {/* <NavTop2/> */}
+      <div>
+      <NavTop2/>
       <Carousel/>
       </div>
     </div>

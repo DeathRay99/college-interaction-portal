@@ -72,7 +72,6 @@ function Carousel() {
       >
         {images.map((step, index) => (
           <div key={step.label}>
-            <NavTop2/>
             {Math.abs(activeStep - index) <= 2 ? (
               <Box
                 component="img"
@@ -82,7 +81,7 @@ function Carousel() {
                   objectFit:"cover",
                   display: "block",
                   overflow: "hidden",
-                  border: "black 2px solid"
+                  
                 }}
                 src={step.imgPath}
               />
