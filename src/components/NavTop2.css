@@ -1,0 +1,42 @@
+.navTop2 a{
+text-decoration: none;
+}
+
+.navTop2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    background-color: rgb(215, 58, 23);
+    padding: 7px;
+  
+}
+   
+ .logo{
+    height:150px;
+    width:auto;
+    
+}
+.logodiv{
+    margin-left: 10%;
+}
+.navTop2 a{
+    padding-left: 30px;
+    padding-right: 30px;
+    font-weight: bolder;
+    color: whitesmoke;
+    font-size: larger;
+
+}
+.navTop2Anchor{
+    margin-right: 12%;
+}
+.apply-now-btn{
+    background-color: rgba(0, 0, 0, 0.654);
+    border-radius: 5px;
+}
+
+.navTop2 a:hover{
+    color: red;
+}
+

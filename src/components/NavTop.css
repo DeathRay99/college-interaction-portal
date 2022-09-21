@@ -5,13 +5,20 @@
     display: flex;
     justify-content: flex-end;
     gap: 15px;
+    background-color: black;
+    padding: 7px;
 }
-a{
+.navTop a{
     text-decoration: none;
     font-size: 17px;
-    padding-left: 18px;
+    padding-right: 9px;
+    padding-left: 9px;
+    color: whitesmoke;
 }
 .navTop div{
-    margin-right: 12%;
+    margin-right: 11%;
+}
+.navTop a:hover{
+    border-bottom: 3px red solid;
 }
 
