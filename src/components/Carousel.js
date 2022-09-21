@@ -76,7 +76,7 @@ function Carousel() {
               <Box
                 component="img"
                 sx={{
-                  height: 525,
+                  height: "88vh",
                   width:"100%",
                   objectFit:"cover",
                   display: "block",
