@@ -2,7 +2,6 @@ import * as React from "react";
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MobileStepper from "@mui/material/MobileStepper";
-import NavTop2 from './NavTop2';
 import Button from "@mui/material/Button";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
@@ -51,19 +50,6 @@ function Carousel() {
 
   return (
     <Box sx={{ width: "100%", flexGrow: 1 }}>
-      {/* <Paper
-        square
-        elevation={0}
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          height: 50,
-          pl: 2,
-          bgcolor: "background.default",
-        }}
-      >
-        
-      </Paper> */}
       <AutoPlaySwipeableViews
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={activeStep}
@@ -76,7 +62,7 @@ function Carousel() {
               <Box
                 component="img"
                 sx={{
-                  height: "88vh",
+                  height: "89vh",
                   width:"100%",
                   objectFit:"cover",
                   display: "block",
@@ -90,6 +76,13 @@ function Carousel() {
         ))}
       </AutoPlaySwipeableViews>
       <MobileStepper
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          height: 50,
+          pl: 2,
+          bgcolor: " rgba(4, 2, 0, 0.654);",
+        }}
         steps={maxSteps}
         position="static"
         activeStep={activeStep}
@@ -98,6 +91,10 @@ function Carousel() {
             size="small"
             onClick={handleNext}
             disabled={activeStep === maxSteps - 1}
+            sx={{
+              color:"red",
+              fontWeight:"bold"
+            }}
           >
             Next
             {theme.direction === "rtl" ? (
@@ -108,7 +105,11 @@ function Carousel() {
           </Button>
         }
         backButton={
-          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+          <Button size="small" onClick={handleBack} disabled={activeStep === 0}
+          sx={{
+            color:"red",
+            fontWeight:"bold"
+          }}>
             {theme.direction === "rtl" ? (
               <KeyboardArrowRight />
             ) : (

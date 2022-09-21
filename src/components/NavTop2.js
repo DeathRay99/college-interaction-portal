@@ -11,7 +11,7 @@ function NavTop2(){
           <a href="">Programs</a>
           <a href="">Infrastructure</a>
           <a href="">Webportal</a>
-          <a className="apply-now-btn" href="">Apply Now 2022</a>
+          <a id="apply-now-btn" href="">Apply Now 2022</a>
           </div>
         </div>
     )
