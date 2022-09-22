@@ -43,7 +43,7 @@ text-decoration: none;
     align-items: center;
     /* justify-content: center; */
     overflow-x: scroll;
-   
+    padding: 8px;
 }
 #apply-now-btn{
     background-color: rgba(236, 232, 10, 0.654);
@@ -55,9 +55,18 @@ text-decoration: none;
     transform: scale(1.06);
     transition-duration: 500ms;
 }
-::-webkit-scrollbar {
-    background: none;
+.navTop2 ::-webkit-scrollbar {
+    background: black;
     width: 0;
     padding: 0;
     margin: 0;
+    height: 0;
+  }
+  @media screen and (max-width: 768px) {
+    .navTop2Anchor{
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+      justify-content: center;
+    }
   }

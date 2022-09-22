@@ -11,7 +11,6 @@ import mainView from "./assets/college-main-view.jpg";
 import groundView from "./assets/college-ground-view.jpeg";
 import pool from "./assets/pool.jpg";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-
 const images = [
   {
     imgPath:
@@ -47,10 +46,12 @@ function Carousel() {
   const handleStepChange = (step) => {
     setActiveStep(step);
   };
-
   return (
     <Box sx={{ width: "100%", flexGrow: 1 }}>
       <AutoPlaySwipeableViews
+        sx={{
+          color:"red"
+        }}
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={activeStep}
         onChangeIndex={handleStepChange}
@@ -62,12 +63,11 @@ function Carousel() {
               <Box
                 component="img"
                 sx={{
-                  height: "89vh",
+                  height: "95vh",
                   width:"100%",
                   objectFit:"cover",
                   display: "block",
                   overflow: "hidden",
-                  
                 }}
                 src={step.imgPath}
               />
@@ -81,19 +81,22 @@ function Carousel() {
           alignItems: "center",
           height: 50,
           pl: 2,
-          bgcolor: " rgba(4, 2, 0, 0.654);",
+          bgcolor: "rgba(0, 0, 0, 0.3)",
+          position:"absolute",
+          top: "93%",
+          width: "100%"
         }}
         steps={maxSteps}
         position="static"
         activeStep={activeStep}
         nextButton={
           <Button
-            size="small"
+            size="large"
             onClick={handleNext}
             disabled={activeStep === maxSteps - 1}
             sx={{
-              color:"red",
-              fontWeight:"bold"
+              color:"yellow",
+              fontWeight:"1000"
             }}
           >
             Next
@@ -105,10 +108,10 @@ function Carousel() {
           </Button>
         }
         backButton={
-          <Button size="small" onClick={handleBack} disabled={activeStep === 0}
+          <Button size="large" onClick={handleBack} disabled={activeStep === 0}
           sx={{
-            color:"red",
-            fontWeight:"bold"
+            color:"yellow",
+            fontWeight:"1000"
           }}>
             {theme.direction === "rtl" ? (
               <KeyboardArrowRight />
