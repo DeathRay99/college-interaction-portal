@@ -13,9 +13,7 @@ import pool from "./assets/pool.jpg";
 import lrc from "./assets/lrc.jpg";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const images = [
-  {
-    imgPath: mainView,
-  },
+  { imgPath: mainView },
   {
     imgPath: groundView,
   },
@@ -60,7 +58,7 @@ function Carousel() {
               <Box
                 component="img"
                 sx={{
-                  height: "95vh",
+                  height: "98vh",
                   width: "100%",
                   objectFit: "cover",
                   display: "block",

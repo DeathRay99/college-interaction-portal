@@ -11,9 +11,8 @@
   position: fixed;
   z-index: 100;
   top: 38px;
-  background: none;
   width: 100%;
-  padding: 7px;
+  padding-bottom: 0;
 }
 
 .logo {
@@ -28,7 +27,7 @@
   margin-right: 20px;
   height: fit-content;
   /* margin: auto; */
-  padding: 10px;
+  padding: 7px;
   font-weight: bolder;
   color: whitesmoke;
   font-size: larger;
