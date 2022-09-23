@@ -1,71 +1,70 @@
-.navTop2 a{
-text-decoration: none;
+.navTop2 a {
+  text-decoration: none;
 }
 
-.navTop2{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    padding: 7px;
-    position: fixed;
-    z-index: 100;
-    top: 38px;
-    background: none;
-    width: 100%;
-  
-}
-   
- .logo{
-    height:150px;
-    width:auto;
-    
-}
-.logodiv{
-    margin-left: 10%;
-}
-.navTop2 a{
-    margin-left: 20px;
-    margin-right: 20px;
-    height:fit-content;
-    /* margin: auto; */
-    padding: 10px;
-    font-weight: bolder;
-    color: whitesmoke;
-    font-size: larger;
-    background-color: rgba(0, 0, 0, 0.654);
-    border-radius: 5px;
-    text-align: center;
-}
-.navTop2Anchor{
-    margin-right: 7%;
-    display: flex;
-    align-items: center;
-    /* justify-content: center; */
-    overflow-x: scroll;
-    padding: 8px;
-}
-#apply-now-btn{
-    background-color: rgba(236, 232, 10, 0.654);
-    border-radius: 5px;
+.navTop2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 7px;
+  position: fixed;
+  z-index: 100;
+  top: 38px;
+  background: none;
+  width: 100%;
+  padding: 7px;
 }
 
-.navTop2 a:hover{
-    color: rgb(247, 9, 9);
-    transform: scale(1.06);
-    transition-duration: 500ms;
+.logo {
+  height: 120px;
+  width: auto;
+}
+.logodiv {
+  margin-left: 10%;
+}
+.navTop2 a {
+  margin-left: 20px;
+  margin-right: 20px;
+  height: fit-content;
+  /* margin: auto; */
+  padding: 10px;
+  font-weight: bolder;
+  color: whitesmoke;
+  font-size: larger;
+  background-color: rgba(0, 0, 0, 0.654);
+  border-radius: 5px;
+  text-align: center;
+}
+.navTop2Anchor {
+  margin-right: 7%;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  overflow-x: scroll;
+  padding: 8px;
+}
+#apply-now-btn {
+  background-color: rgba(236, 232, 10, 0.654);
+  border-radius: 5px;
+}
+
+.navTop2 a:hover {
+  color: rgb(247, 9, 9);
+  transform: scale(1.06);
+  transition-duration: 500ms;
 }
 .navTop2 ::-webkit-scrollbar {
-    width: 0;
-    padding: 0;
-    margin: 0;
-    height: 0;
+  width: 0;
+  padding: 0;
+  margin: 0;
+  height: 0;
+}
+@media screen and (max-width: 768px) {
+  .navTop2Anchor {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
   }
-  @media screen and (max-width: 768px) {
-    .navTop2Anchor{
-      flex-direction: column;
-      gap: 15px;
-      align-items: center;
-      justify-content: center;
-    }
-  }
+}

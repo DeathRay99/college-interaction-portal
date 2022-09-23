@@ -5,7 +5,7 @@ function NavTop2(){
   const [show, setShow] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 400) {
+      if (window.scrollY > 425 ) {
         setShow(true);
       } else setShow(false);
     });
