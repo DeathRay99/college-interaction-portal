@@ -10,23 +10,20 @@ import { autoPlay } from "react-swipeable-views-utils";
 import mainView from "./assets/college-main-view.jpg";
 import groundView from "./assets/college-ground-view.jpeg";
 import pool from "./assets/pool.jpg";
+import lrc from "./assets/lrc.jpg";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const images = [
   {
-    imgPath:
-      "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
+    imgPath: mainView,
   },
   {
-    
-    imgPath: pool,
-  },
-  {
-  
     imgPath: groundView,
   },
   {
-   
-    imgPath: mainView,
+    imgPath: lrc,
+  },
+  {
+    imgPath: pool,
   },
 ];
 
@@ -50,7 +47,7 @@ function Carousel() {
     <Box sx={{ width: "100%", flexGrow: 1 }}>
       <AutoPlaySwipeableViews
         sx={{
-          color:"red"
+          color: "red",
         }}
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={activeStep}
@@ -64,8 +61,8 @@ function Carousel() {
                 component="img"
                 sx={{
                   height: "95vh",
-                  width:"100%",
-                  objectFit:"cover",
+                  width: "100%",
+                  objectFit: "cover",
                   display: "block",
                   overflow: "hidden",
                 }}
@@ -82,9 +79,9 @@ function Carousel() {
           height: 50,
           pl: 2,
           bgcolor: "rgba(0, 0, 0, 0.3)",
-          position:"absolute",
+          position: "absolute",
           top: "93%",
-          width: "100%"
+          width: "100%",
         }}
         steps={maxSteps}
         position="static"
@@ -95,8 +92,8 @@ function Carousel() {
             onClick={handleNext}
             disabled={activeStep === maxSteps - 1}
             sx={{
-              color:"yellow",
-              fontWeight:"1000"
+              color: "yellow",
+              fontWeight: "1000",
             }}
           >
             Next
@@ -108,11 +105,15 @@ function Carousel() {
           </Button>
         }
         backButton={
-          <Button size="large" onClick={handleBack} disabled={activeStep === 0}
-          sx={{
-            color:"yellow",
-            fontWeight:"1000"
-          }}>
+          <Button
+            size="large"
+            onClick={handleBack}
+            disabled={activeStep === 0}
+            sx={{
+              color: "yellow",
+              fontWeight: "1000",
+            }}
+          >
             {theme.direction === "rtl" ? (
               <KeyboardArrowRight />
             ) : (
