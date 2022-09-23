@@ -7,6 +7,11 @@
     gap: 15px;
     background-color: black;
     padding: 7px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+
 }
 .navTop a{
     text-decoration: none;

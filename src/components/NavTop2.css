@@ -7,10 +7,10 @@ text-decoration: none;
     justify-content: space-between;
     align-items: center;
     gap: 15px;
-    background-color: rgb(215, 58, 23);
     padding: 7px;
-    position: absolute;
+    position: fixed;
     z-index: 100;
+    top: 38px;
     background: none;
     width: 100%;
   
@@ -56,7 +56,6 @@ text-decoration: none;
     transition-duration: 500ms;
 }
 .navTop2 ::-webkit-scrollbar {
-    background: black;
     width: 0;
     padding: 0;
     margin: 0;
