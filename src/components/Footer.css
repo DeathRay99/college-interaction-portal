@@ -9,7 +9,7 @@ body {
   box-sizing: border-box;
 }
 .container {
-  max-width: 1170px;
+  max-width: 100vw;
   margin: auto;
   /* padding:0; */
 }
@@ -79,13 +79,15 @@ ul {
 .social-links {
   color: white;
 }
+
 .footer-col-sub {
   margin-bottom: 100px;
 }
 .footer-sub-input {
-  width: 250px;
+  width: 100%;
   height: 50px;
   margin-bottom: 10px;
+  border-radius: 10px;
 }
 #subscribe-btn {
   margin-top: 10px;
@@ -94,6 +96,8 @@ ul {
   background-color: red;
   color: white;
   margin-left: 60px;
+  border-radius: 10px;
+  font-size: 1.0rem;
 }
 #subscribe-btn:hover {
   cursor: pointer;
@@ -104,6 +108,10 @@ ul {
 .footer-follow-us {
   position: relative;
   bottom: 80px;
+}
+input::-webkit-input-placeholder{
+  font-size: 1.2rem;
+  text-align: center;
 }
 .footer-col .social-links a:hover {
   color: #24262b;
