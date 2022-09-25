@@ -1,13 +1,13 @@
 import React from "react";
 import "./Placements.css";
 import PlacementOverview from "./PlacementOverview";
-import c1 from "./c1.png";
-import c2 from "./c2.png";
-import c3 from "./c3.png";
-import c4 from "./c4.png";
-import c5 from "./c5.png";
-import c6 from "./c6.png";
-import c7 from "./c7.jpeg";
+import c1 from "../assets/c1.png";
+import c2 from "../assets/c2.png"
+import c3 from "../assets/c3.png";
+import c4 from "../assets/c4.png";
+import c5 from "../assets/c5.png";
+import c6 from "../assets/c6.png";
+import c7 from "../assets/c7.png";
 function Placements() {
   return (
     <div>

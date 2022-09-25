@@ -1,17 +1,8 @@
-
-
-.AboutUs-parent{
-
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
-    width:100%;
-    background-color: #bbdefb;
-
-}
-
-.AboutUs-c2{
-    text-align: center;
-    width: fit-content;
+.AboutUs-parent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #bbdefb;
 }
 

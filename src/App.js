@@ -13,7 +13,7 @@ function App() {
       <Carousel/>
       </div>
       <BasicStack/>
-       <Footer/>
+      <Footer/>
     </div>
   );
 }
