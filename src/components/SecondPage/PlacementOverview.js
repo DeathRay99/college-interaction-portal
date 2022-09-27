@@ -9,21 +9,31 @@ function PlacementOverview() {
       onEnter={() => setCounterOn(true)}
       onExit={() => setCounterOn(false)}
     >
-      <div>
-        PlacementOverview Recruiters Visited
-        <h1>
-          {counterOn && <CountUp start={0} end={160} duration={3} delay={1} />}
-        </h1>
-        Students Placed
-        <h1>
-          {counterOn && <CountUp start={0} end={1000} duration={3} delay={1} />}
-          +
-        </h1>
-        Average CTC
-        <h1>
-          {counterOn && <CountUp start={0} end={11} duration={3} delay={1} />}
-          LPA
-        </h1>
+      <div className="placement-stats">
+        <div style={{borderLeft:"2px solid grey"}}>
+          <span>Recruiters Visited</span> 
+          <h1>
+            {counterOn && (
+              <CountUp start={0} end={160} duration={3} delay={1} />
+            )}
+          </h1>
+        </div>
+        <div style={{borderLeft:"2px solid grey"}}>
+          <span>Students Placed</span>
+          <h1>
+            {counterOn && (
+              <CountUp start={0} end={1000} duration={3} delay={1} />
+            )}
+            +
+          </h1>
+        </div>
+        <div style={{borderLeft:"2px solid grey"}}>
+          <span>Average CTC</span>
+          <h1>
+            {counterOn && <CountUp start={0} end={11} duration={3} delay={1} />}
+            LPA
+          </h1>
+        </div>
       </div>
     </ScrollTrigger>
   );

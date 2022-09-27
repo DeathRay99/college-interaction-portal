@@ -86,16 +86,17 @@ ul {
 .footer-sub-input {
   width: 20vw;
   height: 50px;
-  margin-bottom: 10px;
+  margin:auto;
+  display: block;
   border-radius: 10px;
 }
 #subscribe-btn {
-  margin-top: 10px;
   height: 30px;
-  width: 129px;
+  padding: 5px;
   background-color: red;
+  margin: auto;
   color: white;
-  margin-left: 60px;
+  display: block;
   border-radius: 10px;
   font-size: 1.0rem;
 }
