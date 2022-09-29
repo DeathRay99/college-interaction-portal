@@ -8,19 +8,24 @@ import ApplyNow from "./components/ApplyNow";
 function App() {
   return (
     <Router>
-      <div className="App">
-        <NavTop />
-        <div style={{ position: "relative" }}>
-          <NavTop2 />
-          <Carousel />
-        </div>
-        <BasicStack />
-        <Footer />
-        <Switch>
-          <Route component={ApplyNow} path="/applyNow" />
-        </Switch>
-      </div>
-      </Router>
+      <Switch>
+        <Route path="/" exact>
+          <div className="App">
+            <NavTop />
+            <div style={{ position: "relative" }}>
+              <NavTop2 />
+              <Carousel />
+            </div>
+            <BasicStack />
+            <Footer />
+          </div>
+        </Route>
+        <Route path="/applyNow">
+          <NavTop />
+          <ApplyNow />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
