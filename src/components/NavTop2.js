@@ -22,7 +22,7 @@ function NavTop2(){
           <a href="#">Programs</a>
           <a href="#">Infrastructure</a>
           <a href="#">Webportal</a>
-          <Link id="apply-now-btn" to="/applyNow">Apply Now 2022</Link>
+          <Link id="apply-now-btn" to='/applyNow'>Apply Now 2022</Link>
           </div>
         </div>
     )

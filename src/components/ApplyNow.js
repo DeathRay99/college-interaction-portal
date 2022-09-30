@@ -45,21 +45,34 @@ export default function ApplyNow() {
   const [city, setCity] = useState("");
   const [nationality, setNationality] = useState("");
 
+  async function dataSubmitHandler(details) {
+    await fetch(
+      "https://college-portal-14f75-default-rtdb.firebaseio.com/Registrations.json",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          applicantData: details,
+        }),
+      }
+    );
+  }
   const handleSubmit = (event) => {
     event.preventDefault();
-    if(stream==="Select"||stream==="None"){
+    if (stream === "Select" || stream === "None") {
       setStream("None");
-      return ;
+      return;
     }
-    console.log({
-      name: name,
-      email: email,
-      mobile: mobile,
-      city: city,
-      state: state,
-      nationality: nationality,
-      stream: stream,
-    });
+    var details = {
+      Name: name,
+      Email: email,
+      Mobile: +mobile,
+      City: city,
+      State: state,
+      Nationality: nationality,
+      Stream: stream,
+    };
+    dataSubmitHandler(details);
+
     setName("");
     setStream("Select");
     setEmail("");
@@ -108,11 +121,7 @@ export default function ApplyNow() {
           <Typography component="h1" variant="h5">
             Apply Now
           </Typography>
-          <Box
-            component="form"
-            onSubmit={handleSubmit}
-            sx={{ mt: 3 }}
-          >
+          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
@@ -200,9 +209,16 @@ export default function ApplyNow() {
                   fullWidth
                   value={stream}
                   onChange={handleStreamChange}
-                  style={{backgroundColor: stream==="None"?"rgba(237, 124, 124, 0.7)":"transparent"}}
+                  style={{
+                    backgroundColor:
+                      stream === "None"
+                        ? "rgba(237, 124, 124, 0.7)"
+                        : "transparent",
+                  }}
                 >
-                  <MenuItem value="Select">--Please choose an option--</MenuItem>
+                  <MenuItem value="Select">
+                    --Please choose an option--
+                  </MenuItem>
                   <MenuItem value="Ece">ECE</MenuItem>
                   <MenuItem value="Cse">CSE</MenuItem>
                 </Select>
@@ -210,7 +226,11 @@ export default function ApplyNow() {
               <Grid item xs={12}>
                 <FormControlLabel
                   control={
-                    <Checkbox value="allowExtraEmails" color="primary" required />
+                    <Checkbox
+                      value="allowExtraEmails"
+                      color="primary"
+                      required
+                    />
                   }
                   label="I agree to terms and conditions required during admissions and during tenure of exams.."
                 />
