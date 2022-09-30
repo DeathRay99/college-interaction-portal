@@ -1,6 +1,7 @@
 import './NavTop2.css';
 import { useEffect, useState } from "react";
 import jiitLogo from './assets/jiitLogo.png';
+import {Link} from "react-router-dom";
 function NavTop2(){
   const [show, setShow] = useState(false);
   useEffect(() => {
@@ -17,11 +18,11 @@ function NavTop2(){
            <img  className="logo" src={jiitLogo}  alt="" />
          </div>
         <div className="navTop2Anchor">
-          <a href="">About Us</a>
-          <a href="">Programs</a>
-          <a href="">Infrastructure</a>
-          <a href="">Webportal</a>
-          <a id="apply-now-btn" href="">Apply Now 2022</a>
+          <a href="#">About Us</a>
+          <a href="#">Programs</a>
+          <a href="#">Infrastructure</a>
+          <a href="#">Webportal</a>
+          <Link id="apply-now-btn" to='/applyNow'>Apply Now 2022</Link>
           </div>
         </div>
     )

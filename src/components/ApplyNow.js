@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -37,18 +37,71 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function ApplyNow() {
+  const [stream, setStream] = useState("Select");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [state, setState] = useState("");
+  const [city, setCity] = useState("");
+  const [nationality, setNationality] = useState("");
+
+  async function dataSubmitHandler(details) {
+    await fetch(
+      "https://college-portal-14f75-default-rtdb.firebaseio.com/Registrations.json",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          applicantData: details,
+        }),
+      }
+    );
+  }
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-  };
-  const [stream,setStream] = useState(0);
+    if (stream === "Select" || stream === "None") {
+      setStream("None");
+      return;
+    }
+    var details = {
+      Name: name,
+      Email: email,
+      Mobile: +mobile,
+      City: city,
+      State: state,
+      Nationality: nationality,
+      Stream: stream,
+    };
+    dataSubmitHandler(details);
 
-  const handleChange = (event) => {
+    setName("");
+    setStream("Select");
+    setEmail("");
+    setMobile("");
+    setState("");
+    setCity("");
+    setNationality("");
+  };
+
+  const handleStreamChange = (event) => {
     setStream(event.target.value);
+  };
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+  const handleStateChange = (event) => {
+    setState(event.target.value);
+  };
+  const handleCityChange = (event) => {
+    setCity(event.target.value);
+  };
+  const handleNationalityChange = (event) => {
+    setNationality(event.target.value);
+  };
+  const handleMobileChange = (event) => {
+    setMobile(event.target.value);
   };
   return (
     <ThemeProvider theme={theme}>
@@ -68,35 +121,19 @@ export default function ApplyNow() {
           <Typography component="h1" variant="h5">
             Apply Now
           </Typography>
-          <Box
-            component="form"
-            noValidate
-            onSubmit={handleSubmit}
-            sx={{ mt: 3 }}
-          >
+          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="fullName"
                   required
                   fullWidth
-                  id="firstName"
-                  label="First Name"
+                  id="fullName"
+                  label="Full Name"
                   autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                  sx={{
-                    border: "5px solid black"
-                  }}
+                  value={name}
+                  onChange={handleNameChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -107,6 +144,8 @@ export default function ApplyNow() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  onChange={handleEmailChange}
+                  value={email}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -118,6 +157,8 @@ export default function ApplyNow() {
                   type="text"
                   id="Mobile"
                   autoComplete=""
+                  onChange={handleMobileChange}
+                  value={mobile}
                 />
               </Grid>
 
@@ -130,9 +171,11 @@ export default function ApplyNow() {
                   type="text"
                   id="state"
                   autoComplete=""
+                  value={state}
+                  onChange={handleStateChange}
                 />
               </Grid>
-              <Grid item xs={11} sm={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -141,9 +184,10 @@ export default function ApplyNow() {
                   type="text"
                   id="city"
                   autoComplete=""
+                  value={city}
+                  onChange={handleCityChange}
                 />
               </Grid>
-
               <Grid item xs={12}>
                 <div></div>
                 <TextField
@@ -153,27 +197,40 @@ export default function ApplyNow() {
                   label="Nationality"
                   type="text"
                   id="Nationality"
+                  value={nationality}
                   autoComplete=""
+                  onChange={handleNationalityChange}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
-              <InputLabel>Branch*</InputLabel>
+              <Grid item xs={12} sm={8}>
+                <InputLabel>Branch*</InputLabel>
                 <Select
-                  disableUnderline
                   required
                   fullWidth
                   value={stream}
-        onChange={handleChange}
+                  onChange={handleStreamChange}
+                  style={{
+                    backgroundColor:
+                      stream === "None"
+                        ? "rgba(237, 124, 124, 0.7)"
+                        : "transparent",
+                  }}
                 >
-                  <MenuItem value={0}>None</MenuItem>
-                  <MenuItem value={1}>ECE</MenuItem>
-                  <MenuItem value={2}>CSE</MenuItem>
+                  <MenuItem value="Select">
+                    --Please choose an option--
+                  </MenuItem>
+                  <MenuItem value="Ece">ECE</MenuItem>
+                  <MenuItem value="Cse">CSE</MenuItem>
                 </Select>
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
                   control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
+                    <Checkbox
+                      value="allowExtraEmails"
+                      color="primary"
+                      required
+                    />
                   }
                   label="I agree to terms and conditions required during admissions and during tenure of exams.."
                 />
@@ -185,11 +242,10 @@ export default function ApplyNow() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Submit
+              Register Now
             </Button>
             <Grid container justifyContent="flex-end">
-              <Grid item>
-              </Grid>
+              <Grid item></Grid>
             </Grid>
           </Box>
         </Box>
@@ -198,10 +254,3 @@ export default function ApplyNow() {
     </ThemeProvider>
   );
 }
-
-
-
-
-
-
-
