@@ -33,7 +33,6 @@ function Copyright(props) {
     </Typography>
   );
 }
-
 const theme = createTheme();
 
 export default function ApplyNow() {

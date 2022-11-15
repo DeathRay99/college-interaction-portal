@@ -1,7 +1,7 @@
 import './NavTop2.css';
 import { useEffect, useState } from "react";
 import jiitLogo from './assets/jiitLogo.png';
-import {Link} from "react-router-dom";
+import {Link,Outlet} from "react-router-dom";
 function NavTop2(){
   const [show, setShow] = useState(false);
   useEffect(() => {
