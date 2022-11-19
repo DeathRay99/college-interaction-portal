@@ -20,6 +20,9 @@
     padding-left: 9px;
     color: whitesmoke;
 }
+.navTop a:visited{
+    border-bottom: 3px red solid;
+}
 .navTop div{
     margin-right: 11%;
 }

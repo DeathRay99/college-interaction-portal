@@ -7,10 +7,10 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
-import mainView from "./assets/college-main-view.jpg";
-import groundView from "./assets/college-ground-view.jpeg";
-import pool from "./assets/pool.jpg";
-import lrc from "./assets/lrc.jpg";
+import mainView from "../assets/college-main-view.jpg";
+import groundView from "../assets/college-ground-view.jpeg";
+import pool from "../assets/pool.jpg";
+import lrc from "../assets/lrc.jpg";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const images = [
   { imgPath: mainView },

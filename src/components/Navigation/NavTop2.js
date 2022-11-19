@@ -1,6 +1,6 @@
 import './NavTop2.css';
 import { useEffect, useState } from "react";
-import jiitLogo from './assets/jiitLogo.png';
+import jiitLogo from '../assets/jiitLogo.png';
 import {Link,Outlet} from "react-router-dom";
 function NavTop2(){
   const [show, setShow] = useState(false);
@@ -21,7 +21,7 @@ function NavTop2(){
           <a href="#">About Us</a>
           <a href="#">Programs</a>
           <a href="#">Infrastructure</a>
-          <a href="#">Webportal</a>
+          <Link to="/portalHome">Webportal</Link>
           <Link id="apply-now-btn" to='/applyNow'>Apply Now 2022</Link>
           </div>
         </div>

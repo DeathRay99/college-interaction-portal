@@ -1,8 +1,8 @@
-import NavTop from "./NavTop";
-import NavTop2 from "./NavTop2";
+import NavTop from "../Navigation/NavTop";
+import NavTop2 from "../Navigation/NavTop2";
 import Carousel from "./Carousel";
 import Footer from "./Footer";
-import BasicStack from "./SecondPage/BasicStack";
+import BasicStack from "./BasicStack";
 
 function HomePage(){
     return(
