@@ -4,7 +4,7 @@ import "./AboutUs.css";
 
 function AboutUs() {
   return (
-    <div>
+    <div id="aboutus">
       <h1>ABOUT US</h1>
       <br></br>
       <div className="AboutUs-parent">

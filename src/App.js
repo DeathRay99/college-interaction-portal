@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ApplyNow from "./components/NewAdmission/ApplyNow";
+import ApplyNow from "./components/NewApplicant/ApplyNow";
 import HomePage from "./components/Home/HomePage";
 import NavTop from "./components/Navigation/NavTop";
 import LoginPage from "./components/WebPortal/LoginPage";
