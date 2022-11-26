@@ -12,6 +12,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
@@ -26,9 +27,14 @@ const theme = createTheme();
 export default function SignIn(props) {
   const [userID, setUserID] = useState("");
   const [password, setPassword] = useState("");
+  const [verified,setVerified]=useState(false);
   let auth = getAuth();
   const collectionRef = collection(database, "users");
   let googleProvider = new GoogleAuthProvider();
+  function onChange(value) {
+    console.log("Captcha value:", value);
+    setVerified(true);
+  }
   const navigate = useNavigate();
   const handleGoogleLogin = async (event) => {
     event.preventDefault();
@@ -49,8 +55,7 @@ export default function SignIn(props) {
         }
         console.log("bhdwee tchr hai tu, student nhi");
         signOut(auth);
-        navigate("/portalHome")
-        
+        navigate("/portalHome");
       } else {
         console.log("No such document");
       }
@@ -58,13 +63,17 @@ export default function SignIn(props) {
       console.log(error.message);
     }
   };
-  const handleBack=()=>{
+  const handleBack = () => {
     props.handleLoginOperation();
-  }
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const res = await signInWithEmailAndPassword(auth, userID.concat("@mail.jiit.ac.in"), password);
+      const res = await signInWithEmailAndPassword(
+        auth,
+        userID.concat("@mail.jiit.ac.in"),
+        password
+      );
       console.log(res);
       navigate("/portalHome/studentLogin");
       setUserID("");
@@ -104,7 +113,7 @@ export default function SignIn(props) {
               id="UserID"
               label="UserID"
               name="UserID"
-            //   autoComplete="email"
+              //   autoComplete="email"
               onChange={(e) => setUserID(e.target.value)}
               value={userID}
             />
@@ -120,19 +129,39 @@ export default function SignIn(props) {
               autoComplete="current-password"
               value={password}
             />
-            <Button
+            <ReCAPTCHA
+              sitekey="6Ldn3jcjAAAAALO2ix32OqgmovmNnoZTiDHxR9lo"
+              onChange={onChange}
+            />
+            {!verified&&<Button
+              type="submit"
+              fullWidth
+              disabled
+              variant="contained"
+              sx={{ mt: 1, mb: 2 }}
+            >Sign In
+            </Button>}
+            {verified&&<Button
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Sign In
-            </Button>
+              sx={{ mt: 1, mb: 2 }}
+            >Sign In
+            </Button>}
             <Grid container>
               <Grid item xs>
                 <Link onClick={handleGoogleLogin}>Sign In with Google</Link>
-                <Button sx={{padding: 0.5, marginLeft: 23, backgroundColor: "orange"}}variant="contained"
-                onClick={handleBack}>⬅️BACK</Button>
+                <Button
+                  sx={{
+                    padding: 0.5,
+                    marginLeft: 23,
+                    backgroundColor: "orange",
+                  }}
+                  variant="contained"
+                  onClick={handleBack}
+                >
+                  ⬅️BACK
+                </Button>
               </Grid>
             </Grid>
           </Box>
