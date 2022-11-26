@@ -2,10 +2,10 @@ import "./Footer.css";
 
 function Footer() {
   return (
-    <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="footer-col">
+    <footer className="footer">
+      <div className="container">
+        <div className="row">
+          <div className="footer-col">
             <h4>Media</h4>
             <ul>
               <li>
@@ -19,7 +19,7 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <div class="footer-col">
+          <div className="footer-col">
             <h4>Admissions</h4>
             <ul>
               <li>
@@ -51,7 +51,7 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <div class="footer-col">
+          <div className="footer-col">
             <h4>Other Links</h4>
             <ul>
               <li>
@@ -83,8 +83,8 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <div class="footer-col">
-            <div class="footer-col-sub">
+          <div className="footer-col">
+            <div className="footer-col-sub">
               <h4>Subscribe</h4>
               <form>
                 <input
@@ -92,7 +92,7 @@ function Footer() {
                   id="fname"
                   name="fname"
                   placeholder="Enter your Email Address"
-                  class="footer-sub-input"
+                  className="footer-sub-input"
                 />
                 <br />
                 <input
@@ -100,7 +100,7 @@ function Footer() {
                   id="lname"
                   name="lname"
                   placeholder="Enter your Mobile Number"
-                  class="footer-sub-input"
+                  className="footer-sub-input"
                 />
                 <br />
                 <div
@@ -109,20 +109,20 @@ function Footer() {
                 </div>
               </form>
             </div>
-            <div class="footer-follow-us">
+            <div className="footer-follow-us">
               <h4>follow us</h4>
-              <div class="social-links">
+              <div className="social-links">
                 <a href="#">
-                  <i class="fab fa-facebook-f"></i>
+                  <i className="fab fa-facebook-f"></i>
                 </a>
                 <a href="#">
-                  <i class="fab fa-twitter"></i>
+                  <i className="fab fa-twitter"></i>
                 </a>
                 <a href="#">
-                  <i class="fab fa-instagram"></i>
+                  <i className="fab fa-instagram"></i>
                 </a>
                 <a href="#">
-                  <i class="fab fa-linkedin-in"></i>
+                  <i className="fab fa-linkedin-in"></i>
                 </a>
 
                 <h5>2022-All Rights Reserved.</h5>

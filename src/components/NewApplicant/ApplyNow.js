@@ -15,7 +15,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-
+import NavTop from "../Navigation/NavTop";
 function Copyright(props) {
   return (
     <Typography
@@ -104,6 +104,7 @@ export default function ApplyNow() {
   };
   return (
     <ThemeProvider theme={theme}>
+      <NavTop />
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
