@@ -24,7 +24,7 @@ import { collection, addDoc, setDoc, doc, getDoc } from "firebase/firestore";
 const theme = createTheme();
 
 export default function SignIn(props) {
-  const [email, setEmail] = useState("");
+  const [userID, setUserID] = useState("");
   const [password, setPassword] = useState("");
   let auth = getAuth();
   const collectionRef = collection(database, "users");
@@ -64,10 +64,10 @@ export default function SignIn(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const res = await signInWithEmailAndPassword(auth, email, password);
+      const res = await signInWithEmailAndPassword(auth, userID.concat("@mail.jiit.ac.in"), password);
       console.log(res);
       navigate("/portalHome/studentLogin");
-      setEmail("");
+      setUserID("");
       setPassword("");
     } catch (error) {
       console.log(error);
@@ -101,12 +101,12 @@ export default function SignIn(props) {
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
+              id="UserID"
+              label="UserID"
+              name="UserID"
+            //   autoComplete="email"
+              onChange={(e) => setUserID(e.target.value)}
+              value={userID}
             />
             <TextField
               margin="normal"
