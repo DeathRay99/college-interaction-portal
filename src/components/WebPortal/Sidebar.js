@@ -6,7 +6,6 @@ import HomeIcon from "@mui/icons-material/Home";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
-
 import { Button } from "@mui/material";
 import ActionAreaCard from "./Sidebarcard";
 import {
@@ -18,10 +17,9 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
-function Sidebar() {
+function Sidebar({auth}) {
   const [img, setImg] = useState("");
   const [profileName,setProfileName]=useState("");
-  let auth = getAuth();
   useEffect(() => {
     onAuthStateChanged(auth, (data) => {
       if (data) {
