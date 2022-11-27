@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Widgets.css"
 import Button from '@mui/material/Button';
-
+import ActionAreaCard from './Gmeet';
 
 function Widgets() {
   return (
@@ -13,6 +13,9 @@ function Widgets() {
       </div>
       <div className='widgets__widgetcontainer'>
       <h2>Whats Happening </h2>
+      <div className='gmeet'>
+      <ActionAreaCard />
+      </div>
       
      
       </div>

@@ -1,6 +1,7 @@
 body{
-    --twitter-color: #50b7f5;
+    --twitter-color:  #3dabc6;
     --twitter-background: #e6ecf0
+    
 }
 .portal-home{
     display: flex;
@@ -9,4 +10,5 @@ body{
     margin-left: auto;
     margin-right: auto;
     padding: 0 10px;
+    
 }

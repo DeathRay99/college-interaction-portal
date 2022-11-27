@@ -3,6 +3,10 @@
     flex: 0.3;
 }
 
+.gmeet{
+    margin-top: 20px;
+}
+
 .widgets__input{
     display: flex;
     align-items: center;
