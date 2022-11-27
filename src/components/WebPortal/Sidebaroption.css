@@ -10,15 +10,17 @@
     transition: color 100ms ease-out;
 }
 
-.Sidebaroption > .MuiSvgIcon-root {
+.Sidebaroption {
     padding: 20px;
+    
     border-radius: 30px;
 }
-
+/* > .MuiSvgIcon-root  */
 .Sidebaroption > h2{
     font-weight: 800;
     font-size: 20px;
     margin-right: 20px;
+    margin-left: 20px;
 }
 
 .Sidebaroption--active{
