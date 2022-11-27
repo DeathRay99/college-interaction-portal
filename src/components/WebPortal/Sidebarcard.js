@@ -5,7 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
-export default function ActionAreaCard({ name, image }) {
+export default function ActionAreaCard({ name, image, enroll }) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
@@ -20,7 +20,9 @@ export default function ActionAreaCard({ name, image }) {
           alignCenter>
             {name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <p style={{fontSize:"medium"}}>{enroll}</p>
+          <Typography variant="body2" color="text.secondary"
+          sx={{mt:1}}>
             Jaypee Institute Of Information Technology
           </Typography>
         </CardContent>

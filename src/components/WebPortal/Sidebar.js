@@ -20,12 +20,14 @@ import { useEffect, useState } from "react";
 function Sidebar({auth}) {
   const [img, setImg] = useState("");
   const [profileName,setProfileName]=useState("");
+  const [enroll,setEnroll]=useState("");
   useEffect(() => {
     onAuthStateChanged(auth, (data) => {
       if (data) {
         alert("Logged In");
         setImg(data.photoURL);
         setProfileName(data.displayName);
+        setEnroll(data.email.slice(0,10));
         console.log(data.photoURL,data.displayName);
       } else {
         alert("Not Logged In");
@@ -38,6 +40,7 @@ function Sidebar({auth}) {
       <ActionAreaCard
         name={profileName}
         image={img}
+        enroll={enroll}
       />
       
       <Sidebaroption active text="Home" Icon={HomeIcon} />

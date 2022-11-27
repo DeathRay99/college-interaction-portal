@@ -27,16 +27,16 @@ const theme = createTheme();
 export default function SignIn(props) {
   const [userID, setUserID] = useState("");
   const [password, setPassword] = useState("");
-  const [verified,setVerified]=useState(false);
+  const [verified, setVerified] = useState(false);
   let auth = getAuth();
   const collectionRef = collection(database, "users");
   let googleProvider = new GoogleAuthProvider();
   function onChange(value) {
     console.log("Captcha value:", value);
-    setVerified((prev)=>!prev);
+    setVerified((prev) => !prev);
   }
   const navigate = useNavigate();
- async function check_student_teacher(response){
+  async function check_student_teacher(response) {
     try {
       const snap = await getDoc(doc(collectionRef, response.user.uid));
       if (snap.exists()) {
@@ -65,10 +65,10 @@ export default function SignIn(props) {
       //   image: response.user.photoURL,
       //   time: "xxx"
       // })
-      check_student_teacher(response);}
-      catch (error) {
-        alert(error.message);
-      }
+      check_student_teacher(response);
+    } catch (error) {
+      alert(error.message);
+    }
   };
   const handleBack = () => {
     props.handleLoginOperation();
@@ -143,10 +143,11 @@ export default function SignIn(props) {
             <Button
               type="submit"
               fullWidth
-              disabled = {verified?false:true}
+              disabled={verified ? false : true}
               variant="contained"
               sx={{ mt: 1, mb: 2 }}
-            >Sign In
+            >
+              Sign In
             </Button>
             <Grid container>
               <Grid item xs>
