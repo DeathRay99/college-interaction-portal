@@ -1,12 +1,6 @@
 body{
-<<<<<<< HEAD
     --twitter-color:  #3dabc6;
-    --twitter-background: #e6ecf0
-    
-=======
-    --twitter-color: violet;
     --twitter-background: #e6ecf0;
->>>>>>> 258e1440f4b7c30d9e8465c77a80eee1afba3282
 }
 .portal-home{
     display: flex;

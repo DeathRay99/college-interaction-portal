@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import "./Widgets.css"
-import Button from '@mui/material/Button';
-import ActionAreaCard from './Gmeet';
-
-function Widgets() {
-=======
 import React from "react";
 import "./Widgets.css";
 import Button from "@mui/material/Button";
@@ -19,7 +11,6 @@ function Widgets({ auth }) {
     navigate("/portalHome");
     return;
   }
->>>>>>> 258e1440f4b7c30d9e8465c77a80eee1afba3282
   return (
     <div className="widgets">
       <div className="logoutbutton">
@@ -27,18 +18,8 @@ function Widgets({ auth }) {
           Logout
         </Button>
       </div>
-<<<<<<< HEAD
-      <div className='widgets__widgetcontainer'>
-      <h2>Whats Happening </h2>
-      <div className='gmeet'>
-      <ActionAreaCard />
-      </div>
-      
-     
-=======
       <div className="widgets__widgetcontainer">
         <h2>Whats Happening </h2>
->>>>>>> 258e1440f4b7c30d9e8465c77a80eee1afba3282
       </div>
     </div>
   );
