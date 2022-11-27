@@ -31,3 +31,9 @@
     font-size: 18px;
     font-weight: 800;
 }
+.logoutbutton{
+    margin: 20px 0px !important;
+    margin-left: 200px !important;
+    background-color: var(--twitter-background);
+    color: black !important;
+}

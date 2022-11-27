@@ -127,7 +127,7 @@ function Footer() {
 
                 <h5>2022-All Rights Reserved.</h5>
                 <p>Website Designed and Devloped By </p>
-                <p>Amar Upadhyay,Deepak Kumar and Vibhor Pandey</p>
+                <p>Amar Upadhyay,Deepak Kumar goyal and Vibhor Pandey</p>
               </div>
             </div>
           </div>

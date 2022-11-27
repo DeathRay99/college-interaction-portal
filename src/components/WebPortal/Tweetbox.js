@@ -6,7 +6,7 @@ import { Avatar,button } from '@mui/material'
 function Tweetbox({image}) {
   return (
     <div className='tweetbox'>
-        <form>
+        <form className='formclass'>
          <div className='tweetbox__input' >
          <Avatar 
             src={image}
@@ -19,11 +19,13 @@ function Tweetbox({image}) {
           placeholder='Optional: Enter image URL'
           type='text'
            />
-
-         <button className='tweetbox__tweetbottom'>Post</button>
-        </form>
+        <div className='uploadfile' >
         <label for="myfile">Select files:</label>
         <input type="file" id="myfile" name="myfile" multiple className='selectfile'/>
+        </div>
+         <button className='tweetbox__tweetbottom'>Post</button>
+        </form>
+       
        
     </div>
   );

@@ -15,18 +15,3 @@
     margin-bottom: 20px;
 }
 
-.sidebar__tweet{
-
-    /* here we are using important to override the material ui inbuilt setting or css */
-    background-color: var(--twitter-color) !important ;
-    border: none !important;
-    font-weight: 900 !important ;
-    color: white;
-    text-transform: inherit !important;
-    border-radius: 30px !important;
-    height: 50px !important;
-    margin-top: 20px !important;
-    
-    /* width: 220px !important; */
-
-}
