@@ -1,0 +1,54 @@
+.post{
+    display: flex;
+    /* align-items: flex-start; */
+    border-bottom: 1px solid var(--twitter-background);
+    padding-bottom: 10px;
+}
+.post__body{
+    flex: 1;
+    padding: 10px;
+}
+.post__body > img{
+    border-radius: 20px;
+    width: 40vw;
+    height: auto;
+}
+.post__footer{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+.post__headertext > h3{
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+.post__headerdescription{
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+.post__badge{
+    font-size: 20px !important;
+    color: var(--twitter-color);
+}
+.post__headerspecial{
+    font-weight: 600px;
+    font-size: 14px;
+    color: gray;
+}
+.post__avatar{
+    padding: 20px;
+}
+.socialaction{
+    display: flex !important;
+    justify-items: flex-start !important;
+    padding: 4px 8px !important;
+}
+.socialaction > button{
+    display: inline-flex !important;
+    align-items: center !important;
+    margin-right: 30px;
+    color: var(--twitter-color);
+    border-color: white;
+    border-radius: 10px;
+    padding: 10px ;
+}

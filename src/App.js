@@ -1,16 +1,28 @@
 import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import ApplyNow from "./components/NewApplicant/ApplyNow";
 import HomePage from "./components/Home/HomePage";
-import NavTop from "./components/Navigation/NavTop";
 import LoginPage from "./components/WebPortal/LoginPage";
+import SamplePage from "./SamplePage";
+import PortalHomePage from "./components/WebPortal/PortalHomePage";
 function App() {
+  // const [image,setImage]=useState("")
+  //   function handleAfterLogin(data){
+  //      setImage(data);
+  //   }
   return (
     <div>
-      <NavTop/>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="applyNow" element={<ApplyNow />} />
-        <Route path="portalHome" element={<LoginPage />} />
+        <Route path="portalHome">
+          <Route
+            index
+            element={<LoginPage /*handleAfterLogin={handleAfterLogin}*/ />}
+          />
+          {/* <Route path="studentLogin" element={<SamplePage/>} /> */}
+          <Route path="studentLogin" element={<PortalHomePage />} />
+        </Route>
       </Routes>
     </div>
   );
