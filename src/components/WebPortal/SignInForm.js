@@ -33,7 +33,7 @@ export default function SignIn(props) {
   let googleProvider = new GoogleAuthProvider();
   function onChange(value) {
     console.log("Captcha value:", value);
-    setVerified(true);
+    setVerified((prev)=>!prev);
   }
   const navigate = useNavigate();
   const handleGoogleLogin = async (event) => {
