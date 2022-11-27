@@ -2,9 +2,9 @@ import React, {useState,useEffect} from 'react'
 import "./Feed.css"
 import Tweetbox from './Tweetbox';
 import Post from './Post';
+import {onAuthStateChanged} from "firebase/auth";
 
-
-function Feed() {
+function Feed({auth}) {
 
   // const [posts, setposts] = useState([]);
   
@@ -13,6 +13,15 @@ function Feed() {
   //     setposts(snapshot.docs.map(doc => doc.data()))
   //     ) )
   // },[]  )
+  const [img, setImg] = useState("");
+  useEffect(() => {
+    onAuthStateChanged(auth, (data) => {
+      if (data) {
+        setImg(data.photoURL);
+        console.log(data.photoURL,data.displayName);
+      } 
+    });
+  }, []);
 
   return (
     <div className='feed'>
@@ -23,7 +32,7 @@ function Feed() {
         
 
        {/* post */}
-       <Tweetbox image='https://th.bing.com/th/id/OIP.7fhgUBTnLJR5S-_8LeMBXgAAAA?pid=ImgDet&w=400&h=500&rs=1' />
+       <Tweetbox image={img} />
        {/* post */}
        {/* {posts.map(post => (
         <Post 

@@ -17,7 +17,7 @@ function PortalHomePage() {
   return (
     <div className="portal-home">
       <Sidebar auth={auth} />
-      <Feed />
+      <Feed auth={auth}/>
       <Widgets auth={auth} />
     </div>
   );

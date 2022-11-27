@@ -36,6 +36,25 @@ export default function SignIn(props) {
     setVerified((prev)=>!prev);
   }
   const navigate = useNavigate();
+ async function check_student_teacher(response){
+    try {
+      const snap = await getDoc(doc(collectionRef, response.user.uid));
+      if (snap.exists()) {
+        if (snap.data().type === "student") {
+          navigate("/portalHome/studentLogin");
+          console.log(snap.data());
+          return;
+        }
+        alert("bhdwee tchr hai tu, student nhi");
+        signOut(auth);
+        navigate("/portalHome");
+      } else {
+        console.log("No such document");
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
   const handleGoogleLogin = async (event) => {
     event.preventDefault();
     try {
@@ -46,22 +65,10 @@ export default function SignIn(props) {
       //   image: response.user.photoURL,
       //   time: "xxx"
       // })
-      const snap = await getDoc(doc(collectionRef, response.user.uid));
-      if (snap.exists()) {
-        if (snap.data().type === "student") {
-          navigate("/portalHome/studentLogin");
-          console.log(snap.data());
-          return;
-        }
-        console.log("bhdwee tchr hai tu, student nhi");
-        signOut(auth);
-        navigate("/portalHome");
-      } else {
-        console.log("No such document");
+      check_student_teacher(response);}
+      catch (error) {
+        alert(error.message);
       }
-    } catch (error) {
-      console.log(error.message);
-    }
   };
   const handleBack = () => {
     props.handleLoginOperation();
@@ -75,11 +82,11 @@ export default function SignIn(props) {
         password
       );
       console.log(res);
-      navigate("/portalHome/studentLogin");
+      check_student_teacher(res);
       setUserID("");
       setPassword("");
     } catch (error) {
-      console.log(error);
+      alert(error.message);
     }
   };
   return (
