@@ -17,7 +17,10 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
-function Sidebar({auth}) {
+function Sidebar({auth,onUpdate}) {
+  // function handleClick(){
+  //    onUpdate();
+  // }
   const [img, setImg] = useState("");
   const [profileName,setProfileName]=useState("");
   const [enroll,setEnroll]=useState("");
@@ -43,11 +46,11 @@ function Sidebar({auth}) {
         enroll={enroll}
       />
       
-      <Sidebaroption active text="Home" Icon={HomeIcon} />
-      <Sidebaroption text="Attendence" Icon={DateRangeIcon} />
-      <Sidebaroption text="Examination Details" Icon={NotificationsNoneIcon} />
-      <Sidebaroption text="Fees" Icon={MailOutlineIcon} />
-      <Sidebaroption text="Feedback" Icon={BookmarkBorderIcon} />
+      <Sidebaroption active text="Home" Icon={HomeIcon} onUpdate={onUpdate}/>
+      <Sidebaroption text="Attendance" Icon={DateRangeIcon} onUpdate={onUpdate}/>
+      <Sidebaroption text="Examination Details" Icon={NotificationsNoneIcon} onUpdate={onUpdate} />
+      <Sidebaroption text="Fees" Icon={MailOutlineIcon} onUpdate={onUpdate} />
+      <Sidebaroption text="Feedback" Icon={BookmarkBorderIcon} onUpdate={onUpdate}/>
       
      
     </div>

@@ -11,14 +11,22 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-
+import {useState} from "react";
+import Attendance from "./Attendance";
 function PortalHomePage() {
+const [show,setShow]=useState("Home");
+function updateHandler(toShow){
+// console.log(toShow);
+setShow(toShow);
+}
+console.log(show);
   let auth = getAuth();
   return (
     <div className="portal-home">
-      <Sidebar auth={auth} />
-      <Feed auth={auth}/>
-      <Widgets auth={auth} />
+      <Sidebar auth={auth} onUpdate={updateHandler} />
+      {show==="Home"&&<Feed auth={auth} />}
+      {show==="Home"&&<Widgets auth={auth} />}
+      {show==="Attendance"&&<Attendance/>}
     </div>
   );
 }
