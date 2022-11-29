@@ -14,11 +14,13 @@ function Feed({auth}) {
   //     ) )
   // },[]  )
   const [img, setImg] = useState("");
+  const [UID,setUID] =useState("");
   useEffect(() => {
     onAuthStateChanged(auth, (data) => {
       if (data) {
         setImg(data.photoURL);
-        console.log(data.photoURL,data.displayName);
+        setUID(data.uid)
+        console.log(data.photoURL,data.displayName,data.uid);
       } 
     });
   }, []);
@@ -32,7 +34,7 @@ function Feed({auth}) {
         
 
        {/* post */}
-       <Tweetbox image={img} />
+       <Tweetbox image={img} uid={UID}/>
        {/* post */}
        {/* {posts.map(post => (
         <Post 
