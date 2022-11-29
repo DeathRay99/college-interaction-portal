@@ -3,6 +3,7 @@
     /* align-items: flex-start; */
     border-bottom: 1px solid var(--twitter-background);
     padding-bottom: 10px;
+    /* border: 5px black solid; */
 }
 .post__body{
     flex: 1;
@@ -25,6 +26,7 @@
 .post__headerdescription{
     margin-bottom: 10px;
     font-size: 17px;
+    width: 600px;
 }
 .post__badge{
     font-size: 20px !important;
