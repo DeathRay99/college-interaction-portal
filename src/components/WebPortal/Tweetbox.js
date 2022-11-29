@@ -47,6 +47,7 @@ function Tweetbox({ image,uid }) {
             placeholder="what's happening?"
             type="text"
             onChange={handleQueryChange}
+            value={query}
           />
         </div>
         <input
