@@ -7,39 +7,44 @@ import { onAuthStateChanged } from "firebase/auth";
 import { collection, addDoc, setDoc, doc, getDoc } from "firebase/firestore";
 
 function Feed({ auth }) {
-  // const [posts, setposts] = useState([]);
-
-  // useEffect(() => {
-  //   db.collection('posts').onSnapshot(snapshot => (
-  //     setposts(snapshot.docs.map(doc => doc.data()))
-  //     ) )
-  // },[]  )
   const [img, setImg] = useState("");
   const [UID, setUID] = useState("");
+  const [name, setName] = useState("");
+  const [handle, setHandle] = useState("");
   const [feeds, setFeeds] = useState([]);
-  const collectionRef = collection(database, "posts");
+
   let posts = [];
-  let mergedPosts = [];
+  const [currPost, setCurrPost] = useState([]);
+  function handleCurrPost(text) {
+    setCurrPost((prev) => [text, ...prev]);
+  }
   useEffect(() => {
     onAuthStateChanged(auth, (data) => {
       if (data) {
         setImg(data.photoURL);
         setUID(data.uid);
+        setName(data.displayName);
+        setHandle(data.email.slice(0, 10));
         console.log(data.photoURL, data.displayName, data.uid);
       }
     });
   }, []);
   useEffect(() => {
+    async function fetchUserDetails(key, feedData) {
+      const collectionRef = collection(database, "users");
+      const snap2 = await getDoc(doc(collectionRef, key));
+      for (let i = 0; i < feedData.length; i++) {
+        posts.push([snap2.data(), feedData[i]]);
+      }
+     if(posts.length>4)
+      setFeeds(posts);
+    }
     async function fetchData() {
-      const snap = await getDoc(doc(collectionRef, "yOVHZyHgG3Mai46PCvAF"));
-      for (let key in snap.data()) {
-        posts.push(snap.data()[key].reverse());
+      const collectionRef = collection(database, "posts");
+      const snap1 = await getDoc(doc(collectionRef, "yOVHZyHgG3Mai46PCvAF"));
+      for (let key in snap1.data()) {
+        fetchUserDetails(key, snap1.data()[key].reverse());
       }
-      console.log(posts);
-      for (let i = 0; i < posts.length; i++) {
-        mergedPosts = mergedPosts.concat(posts[i]);
-      }
-      setFeeds(mergedPosts);
     }
     fetchData();
   }, []);
@@ -50,21 +55,19 @@ function Feed({ auth }) {
       <div className="feed__header">
         <h2> Home </h2>
       </div>
-
-      {/* post */}
-      <Tweetbox image={img} uid={UID} />
-      {/* post */}
-      {/* {posts.map(post => (
-        <Post 
-        displayname={post.displayname}
-        username={post.username}
-        verified={post.verified}
-        text={post.text}
-        avatar={post.avatar}
-        image={post.image}
-       /> */}
-
-      {/* ))} */}
+      <Tweetbox image={img} uid={UID} handleCurrPost={handleCurrPost} />
+      
+      {currPost.map((post) => {
+        return (
+          <Post
+            text={post}
+            key={Math.random()}
+            avatar={img}
+            displayname={`${name} (You)`}
+            username={handle}
+          />
+        );
+      })}
       <Post
         verified={true}
         displayname="Brad pitt"
@@ -74,7 +77,15 @@ function Feed({ auth }) {
         image="https://nationaltoday.com/wp-content/uploads/2022/10/69-Brad-Pitt.jpg"
       />
       {feeds.map((post) => {
-        return <Post text={post} key={Math.random()} />;
+        return (
+          <Post
+            text={post[1]}
+            key={Math.random()}
+            displayname={post[0].name}
+            username={post[0].enroll}
+            avatar={post[0].DP}
+          />
+        );
       })}
       <Post
         verified={true}

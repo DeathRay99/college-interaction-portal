@@ -24,6 +24,7 @@ function Sidebar({auth,onUpdate}) {
   const [img, setImg] = useState("");
   const [profileName,setProfileName]=useState("");
   const [enroll,setEnroll]=useState("");
+  
   useEffect(() => {
     onAuthStateChanged(auth, (data) => {
       if (data) {
