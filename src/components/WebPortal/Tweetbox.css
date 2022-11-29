@@ -58,4 +58,6 @@
       margin-left: 10px;
       
 }
-
+.tweetbox__tweetbottom:hover{
+    cursor: pointer;
+}
