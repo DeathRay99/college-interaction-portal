@@ -41,7 +41,7 @@
 .socialaction{
     display: flex !important;
     justify-items: flex-start !important;
-    padding: 4px 8px !important;
+    padding: 4px 0px !important;
 }
 .socialaction > button{
     display: inline-flex !important;
