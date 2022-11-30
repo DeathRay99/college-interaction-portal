@@ -5,11 +5,11 @@ import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
 import "./Commentpost.css"
 
-export default function IconLabelButtons() {
+export default function IconLabelButtons({onClick}) {
   return (
     <Stack direction="row" spacing={2}>
     
-      <Button variant="contained" endIcon={<SendIcon />} className='commentbutton' >
+      <Button variant="contained" endIcon={<SendIcon />} className='commentbutton' onClick={onClick}>
        Post
       </Button>
     </Stack>
