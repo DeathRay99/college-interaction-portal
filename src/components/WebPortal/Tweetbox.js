@@ -3,14 +3,6 @@ import "./Tweetbox.css";
 import { Avatar, button } from "@mui/material";
 import { useState } from "react";
 import {
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-  GoogleAuthProvider,
-  signInWithPopup,
-  getAuth,
-} from "firebase/auth";
-import {
   collection,
   addDoc,
   setDoc,
@@ -21,7 +13,7 @@ import {
 } from "firebase/firestore";
 import { app, database } from "../../firebaseConfig.js";
 
-function Tweetbox({ image,uid }) {
+function Tweetbox({ image,uid,handleCurrPost }) {
   const [query, setQuery] = useState("");
   function handleQueryChange(e) {
     setQuery(e.target.value);
@@ -33,6 +25,7 @@ function Tweetbox({ image,uid }) {
       await updateDoc(docToUpdate, {
         [uid]: arrayUnion(query),
       });
+      handleCurrPost(query);
       setQuery("");
     } catch (error) {
       alert(error.message);
