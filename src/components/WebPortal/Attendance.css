@@ -1,0 +1,6 @@
+.attendance_body{
+    /* display: flex; */
+    flex: 2;
+    /* margin-right: 5px solid var(--twitter-background); */
+    min-width: fit-content;
+}

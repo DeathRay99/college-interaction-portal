@@ -17,7 +17,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
-function Sidebar({auth,onUpdate}) {
+function Sidebar({auth,onUpdate,Icon}) {
   // function handleClick(){
   //    onUpdate();
   // }
@@ -37,6 +37,21 @@ function Sidebar({auth,onUpdate}) {
       }
     });
   }, []);
+  
+  const [isActive,setactive] = useState(false);
+
+
+  function toggleClass() {
+     setactive(!isActive)
+  }
+
+  const values = [
+    { id: 1 ,text:"Home", Icon:HomeIcon ,onUpdate:"onUpdate"},
+    { id: 2,text:"Attendance", Icon:DateRangeIcon ,onUpdate:"onUpdate"},
+    { id: 3 , text:"Examination Details" ,Icon:NotificationsNoneIcon ,onUpdate:"onUpdate"},
+    { id: 4 ,text:"Fees" ,Icon:MailOutlineIcon ,onUpdate:"onUpdate"},
+    { id: 5 ,text:"Feedback", Icon:BookmarkBorderIcon,onUpdate:"onUpdate"}
+  ];
   return (
     <div className="sidebar">
       {/* <TwitterIcon className='sidebar__twittericon' /> */}
@@ -45,12 +60,26 @@ function Sidebar({auth,onUpdate}) {
         image={img}
         enroll={enroll}
       />
+      {/* className="sidebarbutton" */}
+      {/* <button  className={`sidebarbutton ${isActive  ? 'Sidebaroption--active' : ''}`} onClick={toggleClass}>
+        <Sidebaroption  text="Home" Icon={HomeIcon} onUpdate={onUpdate}/>
+      </button>
+       */}
+
+       {values.map((val) => (
+        <button onClick={() => setactive(val.id)} className={`sidebarbutton ${isActive === val.id ? "Sidebaroption--active" : ""} `} >
+        <Sidebaroption  text={val.text} Icon={val.Icon} onUpdate={onUpdate} />
+       
+      </button>
+          
+        ))}
       
-      <Sidebaroption active text="Home" Icon={HomeIcon} onUpdate={onUpdate}/>
-      <Sidebaroption text="Attendance" Icon={DateRangeIcon} onUpdate={onUpdate}/>
+        {/* <Sidebaroption  text="Home" Icon={HomeIcon} onUpdate={onUpdate}/>
+        <Sidebaroption text="Attendance" Icon={DateRangeIcon} onUpdate={onUpdate}/>
       <Sidebaroption text="Examination Details" Icon={NotificationsNoneIcon} onUpdate={onUpdate} />
       <Sidebaroption text="Fees" Icon={MailOutlineIcon} onUpdate={onUpdate} />
-      <Sidebaroption text="Feedback" Icon={BookmarkBorderIcon} onUpdate={onUpdate}/>
+      <Sidebaroption text="Feedback" Icon={BookmarkBorderIcon} onUpdate={onUpdate}/> */}
+      
       
      
     </div>

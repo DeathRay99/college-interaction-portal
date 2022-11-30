@@ -1,8 +1,14 @@
+import React from "react";
+import "./Attendance.css"
+
 function Attendance(){
     return(
-        <h1>
+        <div className="attendance_body">
+         
             Attendance here!!!
-        </h1>
-    )
+        
+        </div>
+        
+    );
 }
 export default Attendance;

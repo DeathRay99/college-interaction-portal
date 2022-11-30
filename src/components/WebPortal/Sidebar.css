@@ -14,4 +14,20 @@
     margin-left: 20px;
     margin-bottom: 20px;
 }
+.sidebarbutton{
+    width: 100%;
+    border-style: none;
+    background-color: white;
+    /* background-color: var(--twitter-background); */
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 30px;
+    
+}
+.Sidebaroption--active{
+    color: var(--twitter-color) ;
+
+    background-color: var(--twitter-background);
+    /* background-color: red; */
+}
 
