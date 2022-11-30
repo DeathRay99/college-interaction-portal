@@ -3,14 +3,6 @@ import "./Tweetbox.css";
 import { Avatar, button } from "@mui/material";
 import { useState } from "react";
 import {
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-  GoogleAuthProvider,
-  signInWithPopup,
-  getAuth,
-} from "firebase/auth";
-import {
   collection,
   addDoc,
   setDoc,

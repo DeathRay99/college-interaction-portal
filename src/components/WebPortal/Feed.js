@@ -7,10 +7,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { collection, addDoc, setDoc, doc, getDoc } from "firebase/firestore";
 
 function Feed({ auth }) {
-  const [img, setImg] = useState("");
-  const [UID, setUID] = useState("");
-  const [name, setName] = useState("");
-  const [handle, setHandle] = useState("");
+  const [userInfo, setUserInfo] = useState({});
   const [feeds, setFeeds] = useState([]);
 
   let posts = [];
@@ -21,23 +18,22 @@ function Feed({ auth }) {
   useEffect(() => {
     onAuthStateChanged(auth, (data) => {
       if (data) {
-        setImg(data.photoURL);
-        setUID(data.uid);
-        setName(data.displayName);
-        setHandle(data.email.slice(0, 10));
-        console.log(data.photoURL, data.displayName, data.uid);
+        setUserInfo({
+          img: data.photoURL,
+          UID: data.uid,
+          name: data.displayName,
+          handle: data.email.slice(0, 10),
+        });
+        console.log(data.photoURL, data.displayName, data.uid, data.email.slice(0, 10));
       }
     });
-  }, []);
-  useEffect(() => {
     async function fetchUserDetails(key, feedData) {
       const collectionRef = collection(database, "users");
       const snap2 = await getDoc(doc(collectionRef, key));
       for (let i = 0; i < feedData.length; i++) {
         posts.push([snap2.data(), feedData[i]]);
       }
-     if(posts.length>4)
-      setFeeds(posts);
+      if (posts.length > 4) setFeeds(posts);
     }
     async function fetchData() {
       const collectionRef = collection(database, "posts");
@@ -48,23 +44,25 @@ function Feed({ auth }) {
     }
     fetchData();
   }, []);
-
   return (
     <div className="feed">
-      {/* header */}
       <div className="feed__header">
         <h2> Home </h2>
       </div>
-      <Tweetbox image={img} uid={UID} handleCurrPost={handleCurrPost} />
-      
+      <Tweetbox
+        image={userInfo.img}
+        uid={userInfo.UID}
+        handleCurrPost={handleCurrPost}
+      />
+
       {currPost.map((post) => {
         return (
           <Post
             text={post}
             key={Math.random()}
-            avatar={img}
-            displayname={`${name} (You)`}
-            username={handle}
+            avatar={userInfo.img}
+            displayname={`${userInfo.name} (You)`}
+            username={userInfo.handle}
           />
         );
       })}
