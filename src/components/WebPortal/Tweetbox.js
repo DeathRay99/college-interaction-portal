@@ -13,6 +13,7 @@ import {
 } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { app, database, storage } from "../../firebaseConfig.js";
+import UploadIcon from '@mui/icons-material/Upload';
 
 function Tweetbox({ image, uid, handleCurrPost }) {
   const [query, setQuery] = useState("");
@@ -67,7 +68,7 @@ function Tweetbox({ image, uid, handleCurrPost }) {
         <div className="tweetbox__input">
           <Avatar src={image} />
           <input
-            placeholder="what's happening?"
+            placeholder="Announcement/Query"
             type="text"
             onChange={handleQueryChange}
             value={query}
@@ -87,8 +88,9 @@ function Tweetbox({ image, uid, handleCurrPost }) {
             multiple
             className="selectfile"
             onChange={(e) => setImgData(e.target.files[0])}
+            
           />
-          <button onClick={handleFileUpload}>upload file</button>
+          <button className="uploadbtncss" onClick={handleFileUpload}> Upload File  </button>
         </div>
         <button className="tweetbox__tweetbottom" onClick={handleSubmit}>
           Post

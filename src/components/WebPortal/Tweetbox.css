@@ -50,7 +50,9 @@
     margin-left: 20px;
     background-color: rgb(255, 255, 255);
     /* display: inline-block; */
+    
 }
+
 
 .uploadfile {
       margin-top: 30px;
@@ -60,4 +62,8 @@
 }
 .tweetbox__tweetbottom:hover{
     cursor: pointer;
+}
+.uploadbtncss{
+    padding: 4px;
+    /* border-radius: 10px; */
 }

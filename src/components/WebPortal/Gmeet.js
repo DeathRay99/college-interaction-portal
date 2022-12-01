@@ -17,8 +17,12 @@ export default function ActionAreaCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-          <Button variant="contained" href="Meet.new">
-        Create Meet 
+          <Button variant="contained" >
+        <a href='https://apps.google.com/intl/en-GB/meet/'
+        style={{textDecoration: "none",color:"white"}}
+        target="_blank"
+        >
+        Create Meet  </a>
       </Button>
           </Typography>
         </CardContent>

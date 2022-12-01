@@ -4,6 +4,7 @@ import { Avatar } from "@mui/material";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { useState, useEffect } from "react";
 import SimplePaper from "./Commentsection";
 import { onAuthStateChanged, getAuth } from "firebase/auth";
@@ -79,15 +80,15 @@ function Post({ displayname, username, verified, text, image, avatar }) {
         <div className="post__footer">
           <div className="socialaction">
             <button>
-              <FavoriteBorderIcon fontSize="small" />
+              <ThumbUpIcon className="btncss" fontSize="small" />
               upVote
             </button>
             <button onClick={handleClick}>
-              <ChatBubbleOutlineIcon fontSize="small" />
+              <ChatBubbleOutlineIcon className="btncss" fontSize="small" />
               Comment
             </button>
             <button>
-              <ChatBubbleOutlineIcon fontSize="small" />
+              <ChatBubbleOutlineIcon className="btncss" fontSize="small" />
               Send
             </button>
           </div>
