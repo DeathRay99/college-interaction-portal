@@ -72,14 +72,6 @@ function Feed({ auth }) {
           />
         );
       })}
-      <Post
-        verified={false}
-        displayname="Brad pitt"
-        username="bradpittofficial"
-        text="heyy guys just hanging out at the premeier of bullet train"
-        avatar="https://pixel.nymag.com/imgs/fashion/daily/2019/12/18/brad-pitt/brad-pitt-lede.w700.h700.jpg"
-        image="https://nationaltoday.com/wp-content/uploads/2022/10/69-Brad-Pitt.jpg"
-      />
       {feeds.map((post) => {
         return (
           <Post
@@ -93,14 +85,6 @@ function Feed({ auth }) {
           />
         );
       })}
-      <Post
-        verified={true}
-        displayname="Brad pitt"
-        username="bradpittofficial"
-        text="heyy guys just hanging out at the premeier of bullet train"
-        avatar="https://pixel.nymag.com/imgs/fashion/daily/2019/12/18/brad-pitt/brad-pitt-lede.w700.h700.jpg"
-        image="https://nationaltoday.com/wp-content/uploads/2022/10/69-Brad-Pitt.jpg"
-      />
     </div>
   );
 }
