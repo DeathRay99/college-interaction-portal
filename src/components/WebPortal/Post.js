@@ -47,12 +47,7 @@ function Post({ displayname, username, verified, text, image, avatar }) {
             <p> {text}</p>
           </div>
         </div>
-        {image.length>0&&!image.includes(".pdf") && <img src={image} />}
-        {image.length>0&&image.includes(".pdf") && (
-          <a href={image}>
-            <h3>{image}</h3>
-          </a>
-        )}
+         <img src={image} />
         {showCmmnt && (
           <div>
             <p style={{ fontSize: "small", margin: "3px 8px" }}>Comments:-</p>
