@@ -41,7 +41,7 @@ export default function SignIn(props) {
       const snap = await getDoc(doc(collectionRef, response.user.uid));
       if (snap.exists()) {
         if (snap.data().type === props.userType) {
-          navigate("/portalHome/studentLogin");
+          navigate("/portalHome/welcomeToPortal");
           console.log(snap.data());
           return;
         }

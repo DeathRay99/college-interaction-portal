@@ -15,7 +15,7 @@ function App() {
             element={<LoginPage /*handleAfterLogin={handleAfterLogin}*/ />}
           />
           {/* <Route path="studentLogin" element={<SamplePage/>} /> */}
-          <Route path="studentLogin" element={<PortalHomePage />} />
+          <Route path="welcomeToPortal" element={<PortalHomePage />} />
         </Route>
       </Routes>
     </div>
