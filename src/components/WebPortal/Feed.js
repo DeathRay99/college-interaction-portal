@@ -78,11 +78,12 @@ function Feed({ auth }) {
       {feeds.map((post) => {
         return (
           <Post
-            text={post[1]}
+            text={post[1].post}
             key={Math.random()}
             displayname={post[0].name}
             username={post[0].enroll}
             avatar={post[0].DP}
+            image={post[1].img}
           />
         );
       })}

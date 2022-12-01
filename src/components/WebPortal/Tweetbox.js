@@ -11,22 +11,52 @@ import {
   updateDoc,
   arrayUnion,
 } from "firebase/firestore";
-import { app, database } from "../../firebaseConfig.js";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { app, database, storage } from "../../firebaseConfig.js";
 
-function Tweetbox({ image,uid,handleCurrPost }) {
+function Tweetbox({ image, uid, handleCurrPost }) {
   const [query, setQuery] = useState("");
+  const [imgData, setImgData] = useState({});
+  let inputImgURL="";
   function handleQueryChange(e) {
     setQuery(e.target.value);
   }
+  function handleFileUpload(e){
+    e.preventDefault();
+    console.log(imgData);
+    const storageRef = ref(storage, imgData.name);
+    const uploadTask = uploadBytesResumable(storageRef, imgData);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("Upload is " + progress + "% done");
+      },
+      (error) => {
+        console.log(error.message);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          // console.log("File available at", downloadURL);
+         inputImgURL=downloadURL;
+         console.log(inputImgURL)
+        });
+      }
+    );
+  }
   async function handleSubmit(e) {
     e.preventDefault();
+    
+    // console.log(downloadURL);
     const docToUpdate = doc(database, "posts", "yOVHZyHgG3Mai46PCvAF");
     try {
       await updateDoc(docToUpdate, {
-        [uid]: arrayUnion(query),
+        [uid]: arrayUnion({post:query,img:inputImgURL}),
       });
       handleCurrPost(query);
       setQuery("");
+      setImgData({});
     } catch (error) {
       alert(error.message);
     }
@@ -56,7 +86,9 @@ function Tweetbox({ image,uid,handleCurrPost }) {
             name="myfile"
             multiple
             className="selectfile"
+            onChange={(e) => setImgData(e.target.files[0])}
           />
+          <button onClick={handleFileUpload}>upload file</button>
         </div>
         <button className="tweetbox__tweetbottom" onClick={handleSubmit}>
           Post
