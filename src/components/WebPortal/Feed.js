@@ -33,6 +33,7 @@ function Feed({ auth }) {
       for (let i = 0; i < feedData.length; i++) {
         posts.push([snap2.data(), feedData[i]]);
       }
+      console.log(posts);
       if (posts.length > 4) setFeeds(posts);
     }
     async function fetchData() {
