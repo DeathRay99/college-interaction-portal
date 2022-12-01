@@ -17,12 +17,10 @@ export default function ActionAreaCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-          <Button variant="contained" href="#contained-buttons">
+          <Button variant="contained" href="Meet.new">
         Create Meet 
       </Button>
-
           </Typography>
-         
         </CardContent>
       </CardActionArea>
     </Card>

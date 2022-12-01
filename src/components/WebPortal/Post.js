@@ -46,10 +46,15 @@ function Post({ displayname, username, verified, text, image, avatar }) {
             <p> {text}</p>
           </div>
         </div>
-        <img src={image} />
+        {image.length>0&&!image.includes(".pdf") && <img src={image} />}
+        {image.length>0&&image.includes(".pdf") && (
+          <a href={image}>
+            <h3>{image}</h3>
+          </a>
+        )}
         {showCmmnt && (
           <div>
-            <p style={{ fontSize: "small" ,margin:"3px 8px"}}>Comments:-</p>
+            <p style={{ fontSize: "small", margin: "3px 8px" }}>Comments:-</p>
             {cmmnts.map((comment) => {
               return (
                 <div
@@ -59,10 +64,10 @@ function Post({ displayname, username, verified, text, image, avatar }) {
                     borderRadius: "7px",
                     marginBottom: "2px",
                     padding: "7px",
-                    margin: "8px 7px"
+                    margin: "8px 7px",
                   }}
                 >
-                  <b style={{ fontSize: "small", color: "grey", }}>
+                  <b style={{ fontSize: "small", color: "grey" }}>
                     @{handle} (you) :-
                   </b>{" "}
                   {comment}

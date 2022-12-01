@@ -1,15 +1,9 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
 import ApplyNow from "./components/NewApplicant/ApplyNow";
 import HomePage from "./components/Home/HomePage";
 import LoginPage from "./components/WebPortal/LoginPage";
-import SamplePage from "./SamplePage";
 import PortalHomePage from "./components/WebPortal/PortalHomePage";
 function App() {
-  // const [image,setImage]=useState("")
-  //   function handleAfterLogin(data){
-  //      setImage(data);
-  //   }
   return (
     <div>
       <Routes>

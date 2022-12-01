@@ -24,7 +24,12 @@ function Feed({ auth }) {
           name: data.displayName,
           handle: data.email.slice(0, 10),
         });
-        console.log(data.photoURL, data.displayName, data.uid, data.email.slice(0, 10));
+        console.log(
+          data.photoURL,
+          data.displayName,
+          data.uid,
+          data.email.slice(0, 10)
+        );
       }
     });
     async function fetchUserDetails(key, feedData) {
@@ -68,7 +73,7 @@ function Feed({ auth }) {
         );
       })}
       <Post
-        verified={true}
+        verified={false}
         displayname="Brad pitt"
         username="bradpittofficial"
         text="heyy guys just hanging out at the premeier of bullet train"
@@ -78,6 +83,7 @@ function Feed({ auth }) {
       {feeds.map((post) => {
         return (
           <Post
+            verified={post[0].type === "teacher" ? true : false}
             text={post[1].post}
             key={Math.random()}
             displayname={post[0].name}
