@@ -40,12 +40,12 @@ export default function SignIn(props) {
     try {
       const snap = await getDoc(doc(collectionRef, response.user.uid));
       if (snap.exists()) {
-        if (snap.data().type === "student") {
+        if (snap.data().type === props.userType) {
           navigate("/portalHome/studentLogin");
           console.log(snap.data());
           return;
         }
-        alert("bhdwee tchr hai tu, student nhi");
+        alert(`You are not a ${props.userType}, Kindly click Login As ${snap.data().type}`);
         signOut(auth);
         navigate("/portalHome");
       } else {
@@ -59,12 +59,6 @@ export default function SignIn(props) {
     event.preventDefault();
     try {
       const response = await signInWithPopup(auth, googleProvider);
-      // props.handleAfterLogin(response.user.photoURL);
-      // await setDoc(doc(collectionRef, response.user.uid), {
-      //   try: "well tried",
-      //   image: response.user.photoURL,
-      //   time: "xxx"
-      // })
       check_student_teacher(response);
     } catch (error) {
       alert(error.message);

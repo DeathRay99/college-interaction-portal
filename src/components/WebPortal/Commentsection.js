@@ -23,7 +23,8 @@ const[cmmnt,setCmmnt]=useState("");
       noValidate
       autoComplete="off"
     >
-    <TextField id="outlined-basic" label="Comment" variant="outlined" className='outlinebox' onChange={handleCmmntChange} value={cmmnt}/>
+    <TextField id="outlined-basic" label="Comment" variant="outlined" className='outlinebox' onChange={handleCmmntChange} value={cmmnt}
+    />
     <IconLabelButtons onClick={handleClick}/>
     </Box>
     
