@@ -22,6 +22,7 @@ const[cmmnt,setCmmnt]=useState("");
       }}
       noValidate
       autoComplete="off"
+      className='commentbox'
     >
     <TextField id="outlined-basic" label="Comment" variant="outlined" className='outlinebox' onChange={handleCmmntChange} value={cmmnt}
     />

@@ -7,6 +7,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useState, useEffect } from "react";
 import SimplePaper from "./Commentsection";
 import { onAuthStateChanged, getAuth } from "firebase/auth";
+import { margin } from "@mui/system";
 function Post({ displayname, username, verified, text, image, avatar }) {
   let auth = getAuth();
   const [handle, setHandle] = useState("");
@@ -48,19 +49,20 @@ function Post({ displayname, username, verified, text, image, avatar }) {
         <img src={image} />
         {showCmmnt && (
           <div>
-            <p style={{ fontSize: "small" }}>Comments:-</p>
+            <p style={{ fontSize: "small" ,margin:"3px 8px"}}>Comments:-</p>
             {cmmnts.map((comment) => {
               return (
                 <div
                   style={{
                     border: "1px dotted black",
-                    maxWidth: "600px",
+                    maxWidth: "620px",
                     borderRadius: "7px",
                     marginBottom: "2px",
-                    padding: "3px",
+                    padding: "7px",
+                    margin: "8px 7px"
                   }}
                 >
-                  <b style={{ fontSize: "small", color: "grey" }}>
+                  <b style={{ fontSize: "small", color: "grey", }}>
                     @{handle} (you) :-
                   </b>{" "}
                   {comment}

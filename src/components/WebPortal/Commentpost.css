@@ -1,6 +1,10 @@
 .commentbutton{
-    margin-left: auto !important;
+    /* margin-left:  !important; */
 }
 .outlinebox{
-    margin: 20px !important;
+    margin-top: 20px !important;
+    max-width: 620px ;
+}
+.commentbox{
+    /* max-width: 620px !important; */
 }

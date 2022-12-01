@@ -43,7 +43,7 @@
 .socialaction{
     display: flex !important;
     justify-items: flex-start !important;
-    padding: 4px 0px !important;
+    padding: 4px 5px !important;
 }
 .socialaction > button{
     display: inline-flex !important;
@@ -52,5 +52,5 @@
     color: var(--twitter-color);
     border-color: white;
     border-radius: 10px;
-    padding: 10px ;
+    padding: 12px ;
 }
