@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# [College Interaction Portal](https://college-portal-14f75.web.app)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web application that allows college students to interact with each other and access resources provided by the college. Built with React, React Router and Firebase, and hosted on Firebase.
 
-## Available Scripts
+## Features
+- Students can view and register for available courses.
+- Faculty can post announcements and assignments.
+- Staff can manage student and faculty accounts.
+- Student can ask doubts/queries with other fellow students and teachers.
+- Students and teachers can reply to other students' queries.
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+1. Clone the repository: <code>git clone https://github.com/DeathRay99/minor.git</code>
+2. Install the dependencies: <code>npm install</code>
+3. Create a Firebase project and enable the following services:
+   - Authentication (for student login)
+   - Realtime Database (for storing student profiles and marketplace listings)
+   - Cloud Functions (for server-side logic)
+   - Hosting (for hosting the web app)
+4. Set up the Firebase CLI by following the [official documentation](https://firebase.google.com/docs/cli)
+5. Set up the project in your Firebase project by running the following command:  <code>firebase use --add</code>
+6. Create a file called `.env` in the root of the project and add the following variables with your Firebase project's configuration:<pre>
+REACT_APP_FIREBASE_API_KEY=your-api-key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
+REACT_APP_FIREBASE_DATABASE_URL=your-database-url
+REACT_APP_FIREBASE_PROJECT_ID=your-project-id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-sender-id
+REACT_APP_FIREBASE_APP_ID=your-app-id</pre>
+7. Build the React app for production by running the following command: <code>npm run build</code>
+8. Deploy the Firebase functions, hosting, and the built React app by running the following command: <code>firebase deploy --only functions,hosting</code>
+.The app will be available at the URL provided by Firebase Hosting.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [React](https://reactjs.org/) for the frontend
+- [Firebase](https://firebase.google.com/) for the backend, database, and hosting
+- [React Router](https://reactrouter.com/) for routing
 
-### `npm test`
+## Contributing
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+If you want to contribute to the project, please follow these steps:
 
-### `npm run build`
+1. Fork the repository
+2. Create a new branch for your changes (`git checkout -b my-changes`)
+3. Commit your changes (`git commit -am 'Added some features'`)
+4. Push to the new branch (`git push origin my-changes`)
+5. Create a new Pull Request
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## License
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
