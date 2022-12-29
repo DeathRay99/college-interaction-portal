@@ -51,3 +51,7 @@ If you want to contribute to the project, please follow these steps:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
+
+
+##### Project Made By--
+[Me](https://github.com/DeathRay99), [Amar](https://github.com/amarr002) & [Vibhor](https://github.com/vibhor172)
