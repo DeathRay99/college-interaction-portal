@@ -11,7 +11,7 @@ A web application that allows college students to interact with each other and a
 
 ## Installation
 
-1. Clone the repository: <code>git clone https://github.com/DeathRay99/minor.git</code>
+1. Clone the repository: <code>git clone https://github.com/DeathRay99/college-interaction-portal.git</code>
 2. Install the dependencies: <code>npm install</code>
 3. Create a Firebase project and enable the following services:
    - Authentication (for student login)
